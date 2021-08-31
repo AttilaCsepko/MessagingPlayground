@@ -33,7 +33,8 @@ namespace MessageConsumers
 
                     // Replace these two lines with your processing logic.
                     log.LogInformation($"C# Event Hub trigger function processed a message: {messageBody}");
-                    var input = JsonSerializer.Deserialize<ExpectedMessageBody>(messageBody);
+                    var input = JsonSerializer.Deserialize<ExtendedMessageBody>(messageBody);
+                    input.Processor = "SQLEntryFromEventHub";
                     using (SqlConnection connection = new SqlConnection(Environment.GetEnvironmentVariable(_sqlDbConnectionStringVariable)))
                     {
                         connection.Open();
