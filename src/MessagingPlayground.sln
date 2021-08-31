@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EventHubMessageProducreSAST
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServiceBusMessageProducerSASToken", "ServiceBusMessageProducerSASToken\ServiceBusMessageProducerSASToken.csproj", "{63B46357-E5AC-4186-A05B-78DF47614D55}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MessageConsumers", "MessageConsumers\MessageConsumers.csproj", "{20C727EA-A686-4E8C-9F53-2875F4683472}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{63B46357-E5AC-4186-A05B-78DF47614D55}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{63B46357-E5AC-4186-A05B-78DF47614D55}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{63B46357-E5AC-4186-A05B-78DF47614D55}.Release|Any CPU.Build.0 = Release|Any CPU
+		{20C727EA-A686-4E8C-9F53-2875F4683472}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{20C727EA-A686-4E8C-9F53-2875F4683472}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{20C727EA-A686-4E8C-9F53-2875F4683472}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{20C727EA-A686-4E8C-9F53-2875F4683472}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
