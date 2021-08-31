@@ -13,6 +13,8 @@ namespace ServiceBusMessageProducerSASToken
 {
     public class SendService : ISendService
     {
+        private const string _source = "ServiceBusMessageProducerSASToken";
+
         private readonly ServiceBusClient _serviceBusClient;
         private readonly ServiceBusSender _serviceBusSender;
         private readonly IConfiguration _config;
@@ -54,6 +56,7 @@ namespace ServiceBusMessageProducerSASToken
 
                 var messageContent = new
                 {
+                    Source = _source,
                     TimeStamp = DateTime.UtcNow,
                     Guid = Guid.NewGuid(),
                     Message = message
@@ -84,6 +87,7 @@ namespace ServiceBusMessageProducerSASToken
                 {
                     var messageContent = new
                     {
+                        Source = _source,
                         TimeStamp = DateTime.UtcNow,
                         Guid = Guid.NewGuid(),
                         Message = $"{message} #{i}"

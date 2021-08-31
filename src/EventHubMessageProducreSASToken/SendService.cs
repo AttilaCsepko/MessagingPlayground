@@ -14,6 +14,8 @@ namespace EventHubMessageProducreSASToken
 {
     public class SendService : ISendService
     {
+        private const string _source = "EventHubMessageProducreSASToken";
+
         private readonly EventHubProducerClient _eventHubProducerClient;
         private readonly IConfiguration _config;
         private readonly ILogger<SendService> _logger;
@@ -53,6 +55,7 @@ namespace EventHubMessageProducreSASToken
 
                 var messageContent = new
                 {
+                    Source = _source,
                     TimeStamp = DateTime.UtcNow,
                     Guid = Guid.NewGuid(),
                     Message = message
@@ -82,6 +85,7 @@ namespace EventHubMessageProducreSASToken
                 {
                     var messageContent = new
                     {
+                        Source = _source,
                         TimeStamp = DateTime.UtcNow,
                         Guid = Guid.NewGuid(),
                         Message = $"{message} #{i}"
