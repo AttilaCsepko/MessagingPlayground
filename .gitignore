@@ -223,3 +223,5 @@ project.lock.json
 #####
 # End of core ignore list, below put you custom 'per project' settings (patterns or path)
 #####
+/src/MessageConsumers/Properties/PublishProfiles/func-messageconsumers - Zip Deploy.pubxml
+/src/MessageConsumers/Properties/ServiceDependencies/func-messageconsumers - Zip Deploy
