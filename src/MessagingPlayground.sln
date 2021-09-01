@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServiceBusMessageProducerSA
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MessageConsumers", "MessageConsumers\MessageConsumers.csproj", "{20C727EA-A686-4E8C-9F53-2875F4683472}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventHubMessageProducerServicePrincipalCertificate", "EventHubMessageProducerServicePrincipalCertificate\EventHubMessageProducerServicePrincipalCertificate.csproj", "{AFC8A987-256C-41EF-8EC0-25E89AABF17A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{20C727EA-A686-4E8C-9F53-2875F4683472}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{20C727EA-A686-4E8C-9F53-2875F4683472}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{20C727EA-A686-4E8C-9F53-2875F4683472}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AFC8A987-256C-41EF-8EC0-25E89AABF17A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AFC8A987-256C-41EF-8EC0-25E89AABF17A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AFC8A987-256C-41EF-8EC0-25E89AABF17A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AFC8A987-256C-41EF-8EC0-25E89AABF17A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
