@@ -7,24 +7,26 @@ using System.Text.Json;
 using System.Threading.Tasks;
 using MessageConsumers.Models;
 using Microsoft.Azure.EventHubs;
+using Microsoft.Azure.Services.AppAuthentication;
 using Microsoft.Azure.WebJobs;
 using Microsoft.Extensions.Logging;
 
 namespace MessageConsumers
 {
-    public static class SQLEntryFromEventHub
+    public static class SQLEntryFromEventHubManagedIdentity
     {
         private const string _eventHubConnectionStringVariable = "EventHubConnection";
         private const string _eventHubName = "messagewithsastoken";
 
-        private const string _sqlDbConnectionStringVariable = "SqlConnection";
+        private const string _sqlDbConnectionStringVariable = "ManagedIdentitySqlConnection";
 
-        [FunctionName("SQLEntryFromEventHub")]
+        [FunctionName("SQLEntryFromEventHubManagedIdentity")]
         public static async Task Run([EventHubTrigger(_eventHubName, Connection = _eventHubConnectionStringVariable)] EventData[] events,
             ILogger log)
         {
             var exceptions = new List<Exception>();
-
+            var tokenProvider = new AzureServiceTokenProvider();
+            var accessToken = await tokenProvider.GetAccessTokenAsync("https://database.windows.net");
             foreach (EventData eventData in events)
             {
                 try
@@ -34,9 +36,10 @@ namespace MessageConsumers
                     // Replace these two lines with your processing logic.
                     log.LogInformation($"C# Event Hub trigger function processed a message: {messageBody}");
                     var input = JsonSerializer.Deserialize<ExtendedMessageBody>(messageBody);
-                    input.Processor = "SQLEntryFromEventHub";
+                    input.Processor = "SQLEntryFromEventHubManagedIdentity";
                     using (SqlConnection connection = new SqlConnection(Environment.GetEnvironmentVariable(_sqlDbConnectionStringVariable)))
                     {
+                        connection.AccessToken = accessToken;
                         connection.Open();
                         if (true)
                         {
